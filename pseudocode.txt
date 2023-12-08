@@ -1,0 +1,46 @@
+trigger a prompt
+  if it's the first iteration
+    "Enter a number"
+  else
+    "previous guess + hint" 
+get a user input
+check if it's correct or not 
+  if correct
+    tell the user that it's correct
+
+Before clean-up
+
+function handleGuess() {
+  const secretNumber = Math.floor(Math.random() * 110);
+  console.log(secretNumber);
+  let count = 6;
+
+  function makeGuess() {
+    if (i === 0) {
+      numUserGuess = parseInt(prompt("Enter a number: "));
+    } else {
+      if (numUserGuess < secretNumber) {
+        numUserGuess = parseInt(
+          prompt(`Your previous guess: ${numUserGuess}. Guess a higher number.`)
+        );
+      } else {
+        numUserGuess = parseInt(
+          prompt(`Your previous guess: ${numUserGuess}. Guess a lower number.`)
+        );
+      }
+    }
+
+    //   if (count == 0) {
+    //     alert(`You lost. Your secret number was ${secretNumber}.`);
+    //   }
+    // }
+    // makeGuess();
+  }
+}
+const startButton = document.getElementById("gameStart");
+startButton.addEventListener("click", () => setTimeout(handleGuess, 1000));
+
+// let count2 = 5;
+// let count3 = 4;
+// const sum = --count2 + count3; // 4 + 4 = 8, count2 is now 4
+// const sum2 = count2-- + count3; // 4 + 4 = 8, count2 is now 3
