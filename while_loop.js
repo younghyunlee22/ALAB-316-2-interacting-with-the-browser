@@ -1,5 +1,5 @@
 function handleGuess() {
-  const secretNumber = Math.floor(Math.random() * 110);
+  const secretNumber = Math.floor(Math.random() * 100) + 1;
   console.log(secretNumber);
   let count = 6;
   let arrResult = [];
@@ -48,18 +48,18 @@ function handleGuess() {
   console.log(arrResult);
   let resultDiv = document.getElementById("result");
   resultDiv.textContent = "";
-  resultDiv.innerHTML = `Your secret number was ${secretNumber}!`;
+  resultDiv.textContent = `Your secret number was ${secretNumber}!`;
   let yourResult = document.createElement("p");
   yourResult.textContent = "The numbers you guessed were";
   for (let i = 0; i < arrResult.length; i++) {
     let eachEle = arrResult[i];
     console.log(eachEle);
     if (isNaN(eachEle) === true) {
-      yourResult.innerHTML += " No number entered";
+      yourResult.textContent += " No number entered";
     } else if (i == arrResult.length - 1) {
-      yourResult.innerHTML += ` and ${eachEle}.`;
+      yourResult.textContent += ` and ${eachEle}.`;
     } else {
-      yourResult.innerHTML += ` ${eachEle},`;
+      yourResult.textContent += ` ${eachEle},`;
     }
     resultDiv.appendChild(yourResult);
   }
